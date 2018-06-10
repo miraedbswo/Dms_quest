@@ -24,8 +24,9 @@ def residual(id, status):
     Database = User.query.filter_by(user_id=id).first()
 
     if Database is None:
-        return 'incorrect id'
-
+        return '틀린 id입니다.'
+    if status >= 4:
+        return '잘못된 값입니다.'
     Database.stay = status
 
     db.session.commit()
@@ -42,7 +43,9 @@ def go_out(id, status):
     Database = User.query.filter_by(user_id=id).first()
 
     if Database is None:
-        return 'incorrect id'
+        return '틀린 id입니다'
+    if status >= 3:
+        return '잘못된 값입니다.'
 
     Database.goingout = status
 
