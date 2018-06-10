@@ -21,8 +21,11 @@ def residual(id, status):
     3 : 토요귀사
     4 : 잔류
     """
-
     Database = User.query.filter_by(user_id=id).first()
+
+    if Database is None:
+        return 'incorrect id'
+
     Database.stay = status
 
     db.session.commit()
@@ -37,6 +40,10 @@ def go_out(id, status):
     3 : 토, 일요일 외출
     """
     Database = User.query.filter_by(user_id=id).first()
+
+    if Database is None:
+        return 'incorrect id'
+
     Database.goingout = status
 
     db.session.commit()
