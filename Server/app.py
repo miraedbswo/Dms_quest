@@ -25,7 +25,7 @@ def residual(id, status):
 
     if Database is None:
         return '틀린 id입니다.'
-    if status >= 4:
+    if status >= 4 or status <= 0:
         return '잘못된 값입니다.'
     Database.stay = status
 
@@ -44,7 +44,7 @@ def go_out(id, status):
 
     if Database is None:
         return '틀린 id입니다'
-    if status >= 3:
+    if status >= 3 or status <= 0:
         return '잘못된 값입니다.'
 
     Database.goingout = status
